@@ -1,13 +1,20 @@
 <?php
+use PhpSolutions\File\Upload;
 // set the maximum upload size in bytes
 $max = 51200;
 if (isset($_POST['upload'])) {
 // define the path to the upload folder
 $destination = 'C:/upload_test/';
-// move the file to the upload folder and rename it
-move_uploaded_file($_FILES['image']['tmp_name'],
-$destination . $_FILES['image']['name']);
+require_once '../Uploads/PhpSolutions/File/Upload.php';
+    try {
+      $loader = new Upload($destination);
+      $loader->upload();
+      $result = $loader->getMessages();
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
 }
+
 ?>
 <!doctype html>
 <html>
@@ -20,6 +27,15 @@ $destination . $_FILES['image']['name']);
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <?php
+        if (isset($result)) {
+           echo '<ul>';
+           foreach ($result as $message) {
+           echo "<li>$message</li>";
+        }
+        echo '</ul>';
+        }
+        ?>
          <form action="" method="post" enctype="multipart/form-data" id="uploadImage">
            <p>
              <label for="image">Upload image:</label>
