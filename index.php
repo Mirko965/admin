@@ -28,25 +28,37 @@ require_once '../administrator/Uploads/PhpSolutions/File/Upload.php';
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <?php
-        if (isset($result)) {
-           echo '<ul>';
-           foreach ($result as $message) {
-           echo "<li>$message</li>";
-        }
-        echo '</ul>';
-        }
-        ?>
-         <form action="" method="post" enctype="multipart/form-data" id="uploadImage">
-           <p>
-             <label for="image">Upload image:</label>
-               <input type="hidden" name="MAX_FILE_SIZE" value="<?= $max; ?>">
-             <input type="file" name="image" id="image">
-           </p>
-           <p>
-              <input type="submit" name="upload" id="upload" value="Upload">
-           </p>
-         </form>
+
+        <article class="main">
+          <section class="content">
+            <div class="upload">
+                <h2>Upload files</h2>
+                <?php
+                if (isset($result)) {
+                   echo '<ul>';
+                   foreach ($result as $message) {
+                   echo "<li>$message</li>";
+                }
+                echo '</ul>';
+                }
+                ?>
+            <form action="" method="post" enctype="multipart/form-data" id="uploadImage">
+              <p>
+                <label for="image">Upload image:</label>
+                  <input type="hidden" name="MAX_FILE_SIZE" value="<?= $max; ?>">
+                <input type="file" name="image" id="image">
+              </p>
+              <p>
+                 <input type="submit" name="upload" id="upload" value="Upload">
+              </p>
+            </form>
+            </div>
+            <div class="sql">
+                <h2>Databases contact</h2>
+
+            </div>
+          </section>
+        </article>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/main.js"></script>
