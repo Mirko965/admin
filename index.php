@@ -1,3 +1,8 @@
+<?php require_once("./includes/dbconnection.php") ?>
+<?php require_once("./includes/functions.php") ?>
+<?php
+$admin_set = find_all_admins();
+?>
 <?php
 use PhpSolutions\File\Upload;
 // set the maximum upload size in bytes
@@ -55,6 +60,11 @@ require_once '../administrator/Uploads/PhpSolutions/File/Upload.php';
             </div>
             <div class="sql">
                 <h2>Databases contact</h2>
+                <?php
+                while($admin = mysqli_fetch_assoc($admin_set)){
+                    echo $admin["name"];
+                }
+                ?>
 
             </div>
           </section>
