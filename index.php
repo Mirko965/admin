@@ -60,12 +60,20 @@ require_once '../administrator/Uploads/PhpSolutions/File/Upload.php';
             </div>
             <div class="sql">
                 <h2>Databases contact</h2>
-                <?php
-                while($admin = mysqli_fetch_assoc($admin_set)){
-                    echo $admin["name"];
-                }
-                ?>
-
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    <?php while($admin = mysqli_fetch_assoc($admin_set)){ ?>
+                    <tr>
+                    <td><?php  echo $admin["name"]; ?></td>
+                    <td><a href="edit_admin.php">edit</a></td>
+                    <td><a href="delete_admin.php">delete</a></td>
+                    <?php } ?>
+                    </tr>
+                </table>
+                <a href="index.php">cancel</a>
             </div>
           </section>
         </article>
