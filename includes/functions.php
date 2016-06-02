@@ -10,3 +10,8 @@ function find_all_admins(){
     }
     return($result_admin);
 }
+
+function redirect_to($new_location) {
+		header("Location: " . $new_location);
+		exit;
+	}
