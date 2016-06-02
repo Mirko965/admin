@@ -73,7 +73,7 @@ require_once '../administrator/Uploads/PhpSolutions/File/Upload.php';
                     <?php } ?>
                     </tr>
                 </table>
-                <a href="index.php">cancel</a>
+                <a href="new_admin.php">Add new admin</a>
             </div>
           </section>
         </article>
