@@ -16,20 +16,4 @@ function redirect_to($new_location) {
 		exit;
 	}
 
-function find_admin_by_id($admin_id){
-		global $dbconn;
 
-		$query  = "SELECT * ";
-		$query .= "FROM admin ";
-		$query .= "WHERE id = {$admin_id} ";
-		$query .= "LIMIT 1";
-		$result = mysqli_query($dbconn, $query);
-		 if(!$result){
-        die("Databases failed");
-        }
-		if($admin = mysqli_fetch_assoc($result)) {
-			return $admin;
-		} else {
-			return null;
-		}
-}
