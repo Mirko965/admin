@@ -14,9 +14,16 @@
     <body>
 
         <article class="main">
-          <section class="content">
-
-          </section>
+        <section class="content">
+        <form action="create_new_admin.php" method="post">
+            <p>Name:
+                <input type="text" name="name" value=""  >
+            </p>
+            <input type="submit" name="submit" value="create new admin" />
+        </form>
+            <br>
+            <p><a href="index.php">Cancel</a></p>
+        </section>
         </article>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
