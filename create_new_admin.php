@@ -1,3 +1,4 @@
+<?php require_once("./includes/session.php") ?>
 <?php require_once("./includes/dbconnection.php") ?>
 <?php require_once("./includes/functions.php") ?>
 
@@ -14,10 +15,10 @@ if (isset($_POST['submit'])) {
 	$result = mysqli_query($dbconn, $query);
 
 	if ($result) {
-        echo "Admin created";
+        $_SESSION["message"] = "Admin created";
 		redirect_to("index.php");
 	} else {
-		 echo "Admin creation failed";
+		$_SESSION["message"] = "Admin creation failed";
 		redirect_to("new_admin.php");
 	}
     } else {

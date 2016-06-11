@@ -1,3 +1,4 @@
+<?php require_once("./includes/session.php") ?>
 <?php require_once("./includes/dbconnection.php") ?>
 <?php require_once("./includes/functions.php") ?>
 <?php
@@ -75,6 +76,9 @@ require_once '../administrator/Uploads/PhpSolutions/File/Upload.php';
                 </table>
                 <a href="new_admin.php">Add new admin</a>
             </div>
+              <?php
+            echo message();
+            ?>
           </section>
         </article>
 
