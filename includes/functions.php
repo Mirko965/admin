@@ -4,6 +4,7 @@ function find_all_admins(){
 
     $query_admin  = "SELECT * " ;
     $query_admin .= "FROM admin ";
+    $query_admin .= "ORDER BY name DESC ";
     $result_admin = mysqli_query($dbconn, $query_admin);
     if(!$result_admin){
         die("Databases failed");
