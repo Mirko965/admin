@@ -16,4 +16,19 @@ function redirect_to($new_location) {
 		exit;
 	}
 
+function find_admin_by_id($admin_id){
+    global $dbconn;
+
+    $query = "SELECTED * FROM admin WHERE id = $admin_id LIMIT 1 ";
+    $result = mysqli_query($dbconn,$admin_id);
+    if(!$result){
+        die;
+    }
+    if($admin = mysqli_fetch_assoc($result)){
+        return $admin;
+    } else {
+        null;
+    }
+}
+
 
