@@ -31,24 +31,6 @@ function find_admin_by_id($admin_id){
     }
 }
 
-//function find_admin_by_id($admin_id){
-//		global $dbconn;
-//
-//		//$safe_admin_id = mysqli_real_escape_string($dbconn,$admin_id);
-//
-//		$query  = "SELECT * ";
-//		$query .= "FROM admin ";
-//		$query .= "WHERE id = {$admin_id} ";
-//		$query .= "LIMIT 1";
-//		$admin_set = mysqli_query($dbconn, $query);
-//		if(!$admin_set){
-//            die;
-//        }
-//		if($admin = mysqli_fetch_assoc($admin_set)) {
-//			return $admin;
-//		} else {
-//			return null;
-//		}
-//}
+
 
 
