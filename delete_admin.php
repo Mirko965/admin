@@ -12,7 +12,8 @@ $id = $admin["id"];
 $query = "DELETE FROM admin WHERE id = {$id}";
 $result = mysqli_query($dbconn,$query);
 if($result && mysqli_affected_rows($dbconn)){
-    return $result;
     redirect_to("index.php");
+} else {
+   redirect_to("index.php");
 }
 ?>
