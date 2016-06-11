@@ -68,8 +68,8 @@ require_once '../administrator/Uploads/PhpSolutions/File/Upload.php';
                     <?php while($admin = mysqli_fetch_assoc($admin_set)){ ?>
                     <tr>
                     <td><?php  echo $admin["name"]; ?></td>
-                    <td><a href="edit_admin.php">edit</a></td>
-                    <td><a href="delete_admin.php">delete</a></td>
+                    <td><a href="edit_admin.php?id=<?php echo $admin["id"]; ?>">edit</a></td>
+                    <td><a href="delete_admin.php?id=<?php echo $admin["id"]; ?>">delete</a></td>
                     <?php } ?>
                     </tr>
                 </table>
