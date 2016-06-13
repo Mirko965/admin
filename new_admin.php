@@ -20,6 +20,9 @@
             <p>Name:
                 <input type="text" name="name" value=""  >
             </p>
+            <p>Password:
+                <input type="password" name="password" value=""  >
+            </p>
             <input type="submit" name="submit" value="create new admin" />
         </form>
             <br>
