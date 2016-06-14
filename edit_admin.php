@@ -19,7 +19,11 @@ if(isset($_POST['submit'])){
 $id = $admin["id"];
 $name = $_POST["name"];
 $password = $_POST["password"];
-$query = "UPDATE admin SET name = '{$name}', password = '{$password}' WHERE id = {$id} ";
+    $query  = "UPDATE admin SET ";
+    $query .= "name = '{$name}', ";
+    $query .= "password = '{$password}' ";
+    $query .= "WHERE id = {$id} ";
+    $query .= "LIMIT 1";
 $result = mysqli_query($dbconn,$query);
 if($result && mysqli_affected_rows($dbconn) >= 0 ){
     $_SESSION["message"] = "Admin updated";
