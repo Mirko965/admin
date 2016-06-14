@@ -18,9 +18,10 @@ if(isset($_POST['submit'])){
 
 $id = $admin["id"];
 $name = $_POST["name"];
-$query = "UPDATE admin SET name = '{$name}' WHERE id = {$id} ";
+$password = $_POST["password"];
+$query = "UPDATE admin SET name = '{$name}', password = '{$password}' WHERE id = {$id} ";
 $result = mysqli_query($dbconn,$query);
-if($result && mysqli_affected_rows($dbconn) ==1 ){
+if($result && mysqli_affected_rows($dbconn) == 1 ){
     $_SESSION["message"] = "Admin updated";
     redirect_to("index.php");
 }else{
@@ -50,7 +51,7 @@ if($result && mysqli_affected_rows($dbconn) ==1 ){
                 <input type="text" name="name" value="<?php echo htmlentities($admin["name"]); ?>"  >
             </p>
             <p>Password:
-                <input type="password" name="password" value=""  >
+                <input type="password" name="password" value="<?php echo $admin["password"]?>"  >
             </p>
             <input type="submit" name="submit" value="edit" />
         </form>

@@ -6,11 +6,13 @@
 if (isset($_POST['submit'])) {
 
 	$name = $_POST["name"];
+    $password = $_POST["password"];
 
 	$query  = "INSERT INTO admin (";
-	$query .= "  name";
+	$query .= " name ,";
+    $query .= " password ";
 	$query .= ") VALUES (";
-	$query .= "  '{$name}'";
+	$query .= "  '{$name}','{$password}'";
 	$query .= ")";
 	$result = mysqli_query($dbconn, $query);
 
