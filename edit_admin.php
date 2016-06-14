@@ -3,16 +3,32 @@
 <?php require_once("./includes/functions.php") ?>
 
 <?php
-$admin_id = $_GET["id"];
-$query = "SELECT * FROM admin WHERE id = $admin_id ";
-$result = mysqli_query($dbconn,$query);
-if($admin = mysqli_fetch_assoc($result)){
-    return $admin;
-}else{
-    null;
-}
+//$adm//in_id = $_GET["id"];
+//$query = "SELECT * FROM admin WHERE id = $admin_id ";
+//$result = mysqli_query($dbconn,$query);
+//if($admin = mysqli_fetch_assoc($result)){
+//    return $admin;
+//}else{
+//    null;
+//}
 
-   // $admin = find_admin_by_id($_GET["id"]);
+ $admin = find_admin_by_id($_GET["id"]);
+
+if(isset($_POST['submit'])){
+
+$id = $admin["id"];
+$name = $_POST["name"];
+$query = "UPDATE admin SET name = '{$name}' WHERE id = {$id} ";
+$result = mysqli_query($dbconn,$query);
+if($result && mysqli_affected_rows($dbconn) ==1 ){
+    $_SESSION["message"] = "Admin updated";
+    redirect_to("index.php");
+}else{
+    $_SESSION["message"] = "Admin update failed";
+}
+}else{
+
+}
 ?>
 
 <!doctype html>
@@ -31,7 +47,7 @@ if($admin = mysqli_fetch_assoc($result)){
         <section class="content">
         <form action="edit_admin.php?id=<?php echo $admin["id"];?>" method="post">
             <p>Name:
-                <input type="text" name="name" value=""  >
+                <input type="text" name="name" value="<?php echo htmlentities($admin["name"]); ?>"  >
             </p>
             <p>Password:
                 <input type="password" name="password" value=""  >
