@@ -21,7 +21,7 @@ $name = $_POST["name"];
 $password = $_POST["password"];
 $query = "UPDATE admin SET name = '{$name}', password = '{$password}' WHERE id = {$id} ";
 $result = mysqli_query($dbconn,$query);
-if($result && mysqli_affected_rows($dbconn) == 1 ){
+if($result && mysqli_affected_rows($dbconn) >= 0 ){
     $_SESSION["message"] = "Admin updated";
     redirect_to("index.php");
 }else{
