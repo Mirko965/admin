@@ -1,9 +1,13 @@
 <?php require_once("./includes/session.php") ?>
 <?php require_once("./includes/dbconnection.php") ?>
 <?php require_once("./includes/functions.php") ?>
+<?php require_once("./includes/validation_functions.php") ?>
 
 <?php
 if (isset($_POST['submit'])) {
+
+$required_fields = array("name", "password");
+validate_presences($required_fields);
 
 	$name = $_POST["name"];
     $password = $_POST["password"];

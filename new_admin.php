@@ -1,6 +1,7 @@
 <?php require_once("./includes/session.php") ?>
 <?php require_once("./includes/dbconnection.php") ?>
 <?php require_once("./includes/functions.php") ?>
+<?php require_once("./includes/validation_functions.php") ?>
 
 <!doctype html>
 <html>
@@ -16,6 +17,7 @@
 
         <article class="main">
         <section class="content">
+
         <form action="create_new_admin.php" method="post">
             <p>Name:
                 <input type="text" name="name" value=""  >

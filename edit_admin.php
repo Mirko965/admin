@@ -1,6 +1,7 @@
 <?php require_once("./includes/session.php") ?>
 <?php require_once("./includes/dbconnection.php") ?>
 <?php require_once("./includes/functions.php") ?>
+<?php require_once("./includes/validation_functions.php") ?>
 
 <?php
 //$adm//in_id = $_GET["id"];
@@ -16,6 +17,10 @@
 
 if(isset($_POST['submit'])){
 
+$required_fields = array("name", "password");
+validate_presences($required_fields);
+
+if(empty($errors)) {
 $id = $admin["id"];
 $name = $_POST["name"];
 $password = $_POST["password"];
@@ -30,6 +35,7 @@ if($result && mysqli_affected_rows($dbconn) >= 0 ){
     redirect_to("index.php");
 }else{
     $_SESSION["message"] = "Admin update failed";
+}
 }
 }else{
 
@@ -50,6 +56,7 @@ if($result && mysqli_affected_rows($dbconn) >= 0 ){
 
         <article class="main">
         <section class="content">
+
         <form action="edit_admin.php?id=<?php echo $admin["id"];?>" method="post">
             <p>Name:
                 <input type="text" name="name" value="<?php echo htmlentities($admin["name"]); ?>"  >
