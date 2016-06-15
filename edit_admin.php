@@ -19,6 +19,7 @@ if(isset($_POST['submit'])){
 
 $required_fields = array("name", "password");
 validate_presences($required_fields);
+
 $fields_with_max_lengths = array("name" => 8);
   validate_max_lengths($fields_with_max_lengths);
 
@@ -58,6 +59,8 @@ if($result && mysqli_affected_rows($dbconn) >= 0 ){
 
         <article class="main">
         <section class="content">
+        <?php echo message(); ?>
+        <?php echo form_errors($errors); ?>
 
         <form action="edit_admin.php?id=<?php echo $admin["id"];?>" method="post">
             <p>Name:
