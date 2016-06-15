@@ -19,6 +19,8 @@
         <section class="content">
 
         <form action="create_new_admin.php" method="post">
+                <?php echo message(); ?>
+                 <?php echo form_errors($errors); ?>
             <p>Name:
                 <input type="text" name="name" value=""  >
             </p>
