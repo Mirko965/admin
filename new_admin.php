@@ -3,6 +3,38 @@
 <?php require_once("./includes/functions.php") ?>
 <?php require_once("./includes/validation_functions.php") ?>
 
+<?php
+if (isset($_POST['submit'])) {
+
+$required_fields = array("name", "password");
+validate_presences($required_fields);
+
+if(empty($errors))  {
+
+	$name = $_POST["name"];
+    $password = $_POST["password"];
+
+	$query  = "INSERT INTO admin (";
+	$query .= " name ,";
+    $query .= " password ";
+	$query .= ") VALUES (";
+	$query .= "  '{$name}','{$password}'";
+	$query .= ")";
+	$result = mysqli_query($dbconn, $query);
+
+	if ($result) {
+        $_SESSION["message"] = "Admin created";
+		redirect_to("index.php");
+	} else {
+		$_SESSION["message"] = "Admin creation failed";
+        //redirect_to("new_admin.php");
+	}
+}
+    } else {
+
+    }
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -18,7 +50,7 @@
         <article class="main">
         <section class="content">
 
-        <form action="create_new_admin.php" method="post">
+        <form action="new_admin.php" method="post">
                 <?php echo message(); ?>
                  <?php echo form_errors($errors); ?>
             <p>Name:
