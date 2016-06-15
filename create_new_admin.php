@@ -9,6 +9,8 @@ if (isset($_POST['submit'])) {
 $required_fields = array("name", "password");
 validate_presences($required_fields);
 
+if(empty($errors))  {
+
 	$name = $_POST["name"];
     $password = $_POST["password"];
 
@@ -25,10 +27,10 @@ validate_presences($required_fields);
 		redirect_to("index.php");
 	} else {
 		$_SESSION["message"] = "Admin creation failed";
-		redirect_to("new_admin.php");
 	}
+}
     } else {
-    redirect_to("index.php");
+
     }
 ?>
 
