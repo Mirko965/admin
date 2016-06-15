@@ -9,6 +9,9 @@ if (isset($_POST['submit'])) {
 $required_fields = array("name", "password");
 validate_presences($required_fields);
 
+$fields_with_max_lengths = array("name" => 8);
+validate_max_lengths($fields_with_max_lengths);
+
 if(empty($errors))  {
 
 	$name = $_POST["name"];
